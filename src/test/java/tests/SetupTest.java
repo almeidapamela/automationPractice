@@ -51,7 +51,6 @@ public class SetupTest extends BaseTests {
     }
 
     @Test
-
     public void testSearch(){
         String product = "DRESS";
         String resultCounter = "7";
@@ -76,5 +75,24 @@ public class SetupTest extends BaseTests {
         home.clickCategoryTShirt();
         assertTrue(category.isTShirtPage());
 
+    }
+
+    @Test
+    public void viewProductPage(){
+        //Acessar categoria t-shirts
+        testAccessCategoryTShirt();
+
+        //Iniciar as páginas
+        CategoryPage category = new CategoryPage();
+        ProductPage product = new ProductPage();
+
+        //Salva o nome do produto
+        String nameProductCategory = category.getProductNameCategory();
+
+        //Clicar no botão "More"
+        category.clickMoreButton();
+
+        //Verificar se está na página de detalhes do produto
+        assertTrue(product.getProductName().equals(nameProductCategory));
     }
 }
