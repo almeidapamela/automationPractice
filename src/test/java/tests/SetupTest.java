@@ -27,22 +27,18 @@ public class SetupTest extends BaseTests {
 
         //CLICAR NO BOTÃO DE LOGIN NA HOME
         home.clickBtnLogin();
-        //Browser.getCurrentDriver().findElement(By.className("login")).click();
         System.out.println("Clique no login na Home");
         /*assertTrue(Browser.getCurrentDriver().getCurrentUrl().contains(Utils.getBaseUrl()
                 .concat("index.php?controller=authentication&back=my-account")));*/
         assertTrue(Browser.getCurrentDriver().getCurrentUrl().contains("my-account"));
 
-       /*
+
         assertTrue(login.isPageLogin());
         System.out.println("Direcionamento para a página de login");
 
         //REALIZAR O LOGIN
-        login.doLogin();
+        login.doLogin("sextou@gmail.com", "123456");
         System.out.println("Realizamos o login");
-        //Browser.getCurrentDriver().findElement(By.id("email")).sendKeys("sextou@gmail.com");
-        //Browser.getCurrentDriver().findElement(By.id("passwd")).sendKeys("123456");
-       // Browser.getCurrentDriver().findElement(By.id("SubmitLogin")).click();
 
         //VERIFICAR O DIRECIONAMENTO PARA A PÁGINA MY ACCOUNT
         assertTrue(myAccount.isPageMyAccount());
