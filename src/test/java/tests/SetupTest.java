@@ -78,7 +78,7 @@ public class SetupTest extends BaseTests {
     }
 
     @Test
-    public void viewProductPage(){
+    public void testViewProductPage(){
         //Acessar categoria t-shirts
         testAccessCategoryTShirt();
 
@@ -94,5 +94,27 @@ public class SetupTest extends BaseTests {
 
         //Verificar se está na página de detalhes do produto
         assertTrue(product.getProductName().equals(nameProductCategory));
+    }
+
+    @Test
+    public void testAddProductToCart(){
+
+        //Acessar a página de produto
+        testViewProductPage();
+
+        //Iniciar as páginas
+        ProductPage product = new ProductPage();
+        CartPage cart = new CartPage();
+
+        String nameProduct = product.getProductName();
+
+        //Clicar no botão Add to cart
+        product.clickAddToCartBtn();
+
+        //Clicar no botão Proceed to checkout
+        product.clickProceedToCheckoutBtn();
+
+        assertTrue(cart.getNameProductSummary().equals(nameProduct));
+
     }
 }
